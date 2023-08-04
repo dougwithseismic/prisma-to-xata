@@ -1,9 +1,12 @@
 {
-    "name": "template-ts-npm-package",
+    "name": "prisma-to-xata",
     "version": "1.0.0",
-    "description": "A template for scaffolding npm packages with Type Support",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "description": "Port your Prisma.schema to Xata.io and get moving fast!",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": {
+        "prisma-to-xata": "./dist/index.js"
+    },
     "engines": {
         "node": ">=14.0.0"
     },
@@ -16,7 +19,7 @@
         "build:types": "tsc --emitDeclarationOnly",
         "build": "npm run build:js && npm run build:types",
         "dev:build": "nodemon --watch src --exec npm run build",
-        "dev:start": "nodemon dist/index.ts",
+        "dev:start": "nodemon dist/index.js",
         "dev": "concurrently \"npm run dev:build\" \"npm run dev:start\"",
         "prepublishOnly": "npm run build",
         "test": "jest",
@@ -26,26 +29,26 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dougwithseismic/template-ts-npm-package.git"
+        "url": "https://github.com/dougwithseismic/prisma-to-xata.git"
     },
     "author": "Doug Silkstone (twitter.com/dougiesilkstone)",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/dougwithseismic/template-ts-npm-package.git/issues"
+        "url": "https://github.com/dougwithseismic/prisma-to-xata/issues"
     },
     "keywords": [
-        "typescript",
-        "npm",
-        "package",
-        "template",
-        "scaffold",
-        "boilerplate"
+        "prisma",
+        "xata",
+        "schema",
+        "converter",
+        "prisma-to-xata",
+        "migration"
     ],
     "funding": {
         "type": "gimme",
         "url": "https://gimme.fan/@dougiesilkstone"
     },
-    "homepage": "https://github.com/dougwithseismic/template-ts-npm-package.git#readme",
+    "homepage": "https://github.com/dougwithseismic/prisma-to-xata#readme",
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.28.3",
         "@typescript-eslint/parser": "^4.28.3",
@@ -62,5 +65,8 @@
     },
     "contributors": [
         "Doug Silkstone (https://x.withseismic.com)"
-    ]
+    ],
+    "dependencies": {
+        "@prisma/sdk": "^4.0.0"
+    }
 }
